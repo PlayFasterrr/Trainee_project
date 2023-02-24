@@ -30,9 +30,11 @@ class FigureAdapter: RecyclerView.Adapter<FigureAdapter.FigureHolder>() {
     override fun getItemCount(): Int {
         return figures.size
     }
-    fun addFigure (figure: Figure){
+
+
+    fun addFigure(figure: Figure) {
         figures.add(figure)
-        notifyDataSetChanged()
+
     }
 
 
