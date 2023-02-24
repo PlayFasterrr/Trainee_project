@@ -11,16 +11,17 @@ import com.example.treneeproject.databinding.FragmentBlankBinding
 class BlankFragment : Fragment() {
 
     private val imageIdList = listOf(
-        R.drawable.triangle,
-        R.drawable.circle,
-        R.drawable.square,
-        R.drawable.rectangle,
-        R.drawable.triangle,
-        R.drawable.circle,
-        R.drawable.square,
-        R.drawable.rectangle,
-        R.drawable.triangle,
-        R.drawable.circle
+        Figure(R.drawable.triangle),
+        Figure(R.drawable.circle),
+        Figure(R.drawable.square),
+        Figure(R.drawable.rectangle),
+        Figure(R.drawable.triangle),
+        Figure(R.drawable.circle),
+        Figure(R.drawable.square),
+        Figure(R.drawable.rectangle),
+        Figure(R.drawable.circle),
+        Figure(R.drawable.triangle)
+
     )
 
     private val adapter = FigureAdapter()
@@ -31,8 +32,9 @@ class BlankFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        init()
+
         binding = FragmentBlankBinding.inflate(inflater)
+        init()
         return binding.root
 
     }
@@ -42,11 +44,7 @@ class BlankFragment : Fragment() {
         binding.apply {
             rcView.layoutManager = GridLayoutManager(this@BlankFragment.context, 3)
             rcView.adapter = adapter
-            for (i in 0..9){
-                val figure = Figure(imageIdList[i])
-                adapter.addFigure(figure)
-            }
-            return
+            adapter.addFigure(imageIdList)
 
         }
     }

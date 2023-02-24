@@ -32,8 +32,10 @@ class FigureAdapter: RecyclerView.Adapter<FigureAdapter.FigureHolder>() {
     }
 
 
-    fun addFigure(figure: Figure) {
-        figures.add(figure)
+    fun addFigure(list: List<Figure>) {
+        figures.clear()
+        figures.addAll(list)
+        notifyDataSetChanged()
 
     }
 
