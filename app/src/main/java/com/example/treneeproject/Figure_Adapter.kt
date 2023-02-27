@@ -6,14 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.treneeproject.databinding.FigureItemBinding
 
-class FigureAdapter: RecyclerView.Adapter<FigureAdapter.FigureHolder>() {
+class FigureAdapter(private val listener: Listener): RecyclerView.Adapter<FigureAdapter.FigureHolder>() {
 
     private val figures = ArrayList<Figure>()
 
     class FigureHolder(item: View): RecyclerView.ViewHolder(item) {
         private val binding = FigureItemBinding.bind(item)
-        fun bind(figure: Figure){
+        fun bind(figure: Figure, listener: Listener){
             binding.imageView.setImageResource(figure.imageId)
+            itemView.setOnClickListener{
+                listener.onClick(figure)
+            }
             }
         }
 
@@ -24,20 +27,23 @@ class FigureAdapter: RecyclerView.Adapter<FigureAdapter.FigureHolder>() {
     }
 
     override fun onBindViewHolder(holder: FigureHolder, position: Int) {
-        holder.bind(figures[position])
+        holder.bind(figures[position], listener)
     }
 
     override fun getItemCount(): Int {
         return figures.size
     }
 
-
-    fun addFigure(list: List<Figure>) {
+    fun addFigure(list: List<Figure>){
         figures.clear()
-        figures.addAll(list)
-        notifyDataSetChanged()
+        for (i in 0..9) figures.add(list[(0..3).random()])
 
     }
 
+    interface Listener{
+        fun onClick(figure: Figure){
+
+        }
+    }
 
 }
