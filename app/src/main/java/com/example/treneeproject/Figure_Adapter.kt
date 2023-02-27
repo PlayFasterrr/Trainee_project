@@ -41,9 +41,7 @@ class FigureAdapter(private val listener: Listener): RecyclerView.Adapter<Figure
     }
 
     interface Listener{
-        fun onClick(figure: Figure){
-
-        }
+        fun onClick(figure: Figure)
     }
 
 }
