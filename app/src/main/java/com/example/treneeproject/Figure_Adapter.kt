@@ -17,8 +17,8 @@ class FigureAdapter(private val listener: Listener): RecyclerView.Adapter<Figure
             itemView.setOnClickListener{
                 listener.onClick(figure)
             }
-            }
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FigureHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.figure_item, parent, false)

@@ -18,11 +18,9 @@ class BlankFragment2 : Fragment() {
 
         binding = FragmentBlank2Binding.inflate(inflater)
         return binding.root
-
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance() = BlankFragment2()
     }

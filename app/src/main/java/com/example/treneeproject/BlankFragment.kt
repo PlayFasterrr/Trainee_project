@@ -19,7 +19,6 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
     private val adapter = FigureAdapter(this)
     private lateinit var binding: FragmentBlankBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +27,6 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
         binding = FragmentBlankBinding.inflate(inflater)
         init()
         return binding.root
-
     }
 
     private fun init(){
@@ -39,7 +37,6 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
         }
     }
     companion object {
-
         @JvmStatic
         fun newInstance() = BlankFragment()
     }
