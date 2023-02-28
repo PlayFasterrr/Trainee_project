@@ -1,9 +1,7 @@
 package com.example.treneeproject
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,7 +19,6 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
     private val adapter = FigureAdapter(this)
     private lateinit var binding: FragmentBlankBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,23 +27,16 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
         binding = FragmentBlankBinding.inflate(inflater)
         init()
         return binding.root
-
     }
-
 
     private fun init(){
         binding.apply {
             rcView.layoutManager = GridLayoutManager(this@BlankFragment.context, 3)
             rcView.adapter = adapter
-
             adapter.addFigure(imageIdList)
-
-
-
         }
     }
     companion object {
-
         @JvmStatic
         fun newInstance() = BlankFragment()
     }
