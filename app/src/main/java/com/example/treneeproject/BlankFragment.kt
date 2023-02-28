@@ -1,9 +1,7 @@
 package com.example.treneeproject
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,16 +31,11 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
 
     }
 
-
     private fun init(){
         binding.apply {
             rcView.layoutManager = GridLayoutManager(this@BlankFragment.context, 3)
             rcView.adapter = adapter
-
             adapter.addFigure(imageIdList)
-
-
-
         }
     }
     companion object {
