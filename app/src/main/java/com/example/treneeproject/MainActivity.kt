@@ -38,5 +38,9 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.place_holder, fragment)
             .commit()
+
+
+
+
     }
 }
