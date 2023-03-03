@@ -7,16 +7,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.treneeproject.databinding.FragmentBlankBinding
 
-class BlankFragment : Fragment(), FigureAdapter.Listener {
+class BlankFragment : Fragment(), ItemAdapter.Listener{
 
-    private val imageIdList = listOf(
+    private val itemList = listOf(
         Figure(R.drawable.triangle, "Triangle"),
         Figure(R.drawable.circle, "Circle"),
         Figure(R.drawable.square, "Square"),
-        Figure(R.drawable.rectangle, "Rectangle")
+        Figure(R.drawable.rectangle, "Rectangle"),
+        SomeText("Sample text"),
+        SomeText("Another one"),
+        SomeText("Last one")
     )
 
-    private val adapter = FigureAdapter(this)
+    private val adapter = ItemAdapter(this)
     private lateinit var binding: FragmentBlankBinding
 
     override fun onCreateView(
@@ -33,7 +36,7 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
         binding.apply {
             rcView.layoutManager = GridLayoutManager(this@BlankFragment.context, 3)
             rcView.adapter = adapter
-            adapter.addFigure(imageIdList)
+            adapter.addItem(itemList)
         }
     }
     companion object {
@@ -43,5 +46,9 @@ class BlankFragment : Fragment(), FigureAdapter.Listener {
 
     override fun onClick(figure: Figure) {
         Toast.makeText(this@BlankFragment.context, figure.toastText, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onClick(someText: SomeText) {
+        Toast.makeText(this@BlankFragment.context, someText.someText, Toast.LENGTH_SHORT).show()
     }
 }
