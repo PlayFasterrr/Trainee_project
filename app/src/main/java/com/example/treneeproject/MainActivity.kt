@@ -6,6 +6,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.treneeproject.databinding.ActivityMainBinding
+import com.example.treneeproject.musicplayer.PlayerFragment
+import com.example.treneeproject.recyclerview.RecyclerViewFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.place_holder, BlankFragment.newInstance())
+            .replace(R.id.place_holder, RecyclerViewFragment.newInstance())
             .commit()
     }
 
@@ -27,13 +30,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.home -> openFragment(BlankFragment.newInstance())
-            R.id.preferences -> openFragment(BlankFragment2.newInstance())
+        when (item.itemId) {
+            R.id.menu_RecyclerView -> openFragment(RecyclerViewFragment.newInstance())
+            R.id.menu_Player -> openFragment(PlayerFragment.newInstance())
         }
         return true
     }
-    private fun openFragment (fragment: Fragment){
+
+    private fun openFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.place_holder, fragment)
